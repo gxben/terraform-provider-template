@@ -1,32 +1,10 @@
-<!-- archived-provider -->
-This Terraform provider is archived, per our [provider archiving process](https://terraform.io/docs/internals/archiving.html). What does this mean?
-
-1. The code repository and all commit history will still be available.
-1. Existing released binaries will remain available on the releases site.
-1. Documentation will remain on the Terraform website.
-1. Issues and pull requests are not being monitored.
-1. New releases will not be published.
-
-
-Please see https://github.com/hashicorp/terraform-provider-template/issues/85 and the documentation for recommended replacements.
-
----
-
-<!-- /archived-provider -->
-
 Terraform Provider
 ==================
-
-- Website: https://www.terraform.io
-- [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.png)](https://gitter.im/hashicorp-terraform/Lobby)
-- Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
-
-<img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
 
 Maintainers
 -----------
 
-This provider plugin is maintained by the Terraform team at [HashiCorp](https://www.hashicorp.com/).
+This provider plugin is maintained by gxben and community support.
 
 Requirements
 ------------
@@ -37,27 +15,32 @@ Requirements
 Usage
 ---------------------
 
-```
-# For example, restrict template version in 0.1.x
-provider "template" {
-  version = "~> 0.1"
+```hcl
+terraform {
+  required_providers {
+    template = {
+      source  = "gxben/template"
+      # version has to be set explicitly instead of using a > sign
+      version = "= 2.2.0-m1"
+    }
+  }
 }
 ```
 
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/terraform-providers/terraform-provider-template`
+Clone repository to: `$GOPATH/src/github.com/gxben/terraform-provider-template`
 
 ```sh
-$ mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
-$ git clone git@github.com:terraform-providers/terraform-provider-template
+$ mkdir -p $GOPATH/src/github.com/gxben; cd $GOPATH/src/github.com/gxben
+$ git clone git@github.com:gxben/terraform-provider-template
 ```
 
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-template
+$ cd $GOPATH/src/github.com/gxben/terraform-provider-template
 $ make build
 ```
 
